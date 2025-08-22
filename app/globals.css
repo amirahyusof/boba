@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-background: #FFF5F7;
+  --primary-text: #3D3D3D;
+  --secondary-text: #F9A8D4;
+  --secondary-background: #FBCFE8;
+  --third-background: #A7F3D0;
+  --fourth-background: #FDE68A;
+  --cta-button: #EC4899;
+  --secondary-button: #60A5FA;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.hero-container {
+  @apply flex flex-col-reverse md:flex-row items-center justify-between px-8 md:px-20 py-20;
+  background: linear-gradient(180deg, #FBCFE8 0%, #FFF5F7 50%, #A7F3D0 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+.hero-text {
+  @apply max-w-lg text-center md:text-left space-y-6;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.hero-title {
+  @apply text-4xl md:text-5xl font-extrabold text-(--primary-dark);
+}
+
+.hero-subtitle {
+  @apply text-lg text-gray-600;
+}
+
+.hero-boba {
+  @apply relative w-64 h-96 flex items-center justify-center;
+}
+
+.btn-primary {
+  @apply bg-(--cta-button) text-white px-6 py-2 rounded-xl hover:opacity-90;
+}
+
+.btn-secondary {
+  @apply bg-(--secondary-button) text-white px-6 py-2 rounded-xl hover:opacity-90;
+}
+
+.boba-cup {
+  @apply relative w-40 h-60 bg-white rounded-t-2xl rounded-b-full shadow-lg overflow-hidden;
+}
+
+.boba-liquid {
+  @apply absolute bottom-0 left-0 w-full h-3/5 bg-(--secondary-background) rounded-b-full;
+}
+
+.boba-pearls {
+  @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2;
+}
+
+.pearl {
+  @apply w-5 h-5 bg-black rounded-full;
+}
+
+.boba-straw {
+  @apply absolute -top-16 left-1/2 transform -translate-x-1/2 w-6 h-24 bg-(--third-background) rounded-t-full;
 }
